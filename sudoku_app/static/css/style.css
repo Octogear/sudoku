@@ -13,3 +13,10 @@ body{
     width: 400px;
     height: 400px;
 }
+
+
+/* Footer */
+.photo-creds {
+    font-size: 11px;
+    color: #aeaeae;
+}
