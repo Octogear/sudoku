@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="row">
+        <h3>Welcome to Sudoku generator web app!</h3>
+        <p>This application generates unique sudoku of required complexity.</p>
+        <p>It also have <a href="#">API</a> that you can use to generate even more sudoku.</p>
+    </div>
+
+    <div class="row">
+        <h1>Sudoku generator</h1>
+        <!-- generator will be here -->
+        <div class="generator">
+            <div class="col-sm-6">
+                <div class="temp_big_square">
+                    <!-- preview will be here -->
+                </div>
+                <div class="sudoku-btns">
+                    <a class="btn btn-info" href="#">Download</a>
+                    <a class="btn btn-info" href="#">Print</a>
+                    <a class="btn btn-info" href="#">Solve online</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <form action="">
+                    <label for="difficulty">Select difficulty:</label>
+                    <select name="difficulty" id="difficulty">
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                    </select>
+                    <input class="btn btn-warning" type="submit" value="Generate Sudoku">
+
+                    <p>This text appears after table generation: You can either download, print or solve sudoku on the site. Click the table on the left to go to sudoku page and solve it online.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h3>Latest generated sudoku</h3>
+        <!-- last 3 or 4 generated tables -->
+        <div class="col-sm-3">
+            <div class="temp_square"></div>
+            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
+            <p>
+                <a class="btn btn-default" href="#">Download</a>
+                <a class="btn btn-default" href="#">Print</a>
+                <a class="btn btn-default" href="#">Solve online</a>
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <div class="temp_square"></div>
+            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
+            <p>
+                <a class="btn btn-default" href="#">Download</a>
+                <a class="btn btn-default" href="#">Print</a>
+                <a class="btn btn-default" href="#">Solve online</a>
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <div class="temp_square"></div>
+            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
+            <p>
+                <a class="btn btn-default" href="#">Download</a>
+                <a class="btn btn-default" href="#">Print</a>
+                <a class="btn btn-default" href="#">Solve online</a>
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <div class="temp_square"></div>
+            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
+            <p>
+                <a class="btn btn-default" href="#">Download</a>
+                <a class="btn btn-default" href="#">Print</a>
+                <a class="btn btn-default" href="#">Solve online</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

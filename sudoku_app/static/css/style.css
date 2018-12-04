@@ -1,0 +1,15 @@
+body{
+  padding-top: 70px;
+}
+
+/*TEMP*/
+.temp_square, .temp_big_square{
+    width: 200px;
+    height: 200px;
+    background-color: #cecece;
+}
+
+.temp_big_square{
+    width: 400px;
+    height: 400px;
+}
