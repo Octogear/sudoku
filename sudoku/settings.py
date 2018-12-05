@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 	'django_cron',
 	'bootstrap3',
 	'sudoku_app',
+    'api_v1',
 ]
 
 MIDDLEWARE = [

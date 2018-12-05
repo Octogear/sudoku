@@ -28,21 +28,3 @@ class sudoku_appIndexView(TemplateView):
 
 def index(request):
     return HttpResponse("hi there")
-
-
-class HealthView(View):
-    """Health view."""
-
-    def get(self, request, *args, **kwargs):
-        """Get method."""
-        from django.db import connections
-        from django.db.utils import OperationalError
-        db_conn = connections['default']
-        try:
-            db_conn.cursor()
-        except OperationalError:
-            connected = False
-        else:
-            connected = True
-        data = {'db_connected': connected}
-        return JsonResponse(data)

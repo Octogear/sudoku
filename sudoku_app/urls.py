@@ -1,8 +1,8 @@
 from django.conf.urls import url
 from . import views
 
-#app_name = ' TYPE APP NAME HERE AND UNCOMMENT!!! '
+app_name = 'sudoku_app'
 
 urlpatterns = [
-    url(r'^$', views.index, name='app_index'),
+    url('', views.index, name='app_index'),
 ]
