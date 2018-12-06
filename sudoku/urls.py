@@ -14,13 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path
-from django.conf.urls import include
+from django.urls import path, re_path, include
 from django.contrib import admin
 # from django.contrib.auth import views as auth_views
 
 from sudoku_app import views as sudoku_app_views
-from api_v1 import views as api_views
+
 
 # from django.conf.urls.static import static
 # from django.conf import settings
@@ -29,7 +28,6 @@ from api_v1 import views as api_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sudoku_app_views.IndexView.as_view(), name='home'),
-    # path('health/', api_views.HealthView.as_view(), name='health'),
     path('sudoku_app_template/', sudoku_app_views.sudoku_appIndexView.as_view(), name='sudoku_app_template'),
 
     # logging users in/out
@@ -41,6 +39,6 @@ urlpatterns = [
 
     # apps url
     path('sudoku_app/', include('sudoku_app.urls')),
-    path('api_v1/', include('api_v1.urls')),
+    re_path('api/(?P<version>(v1|v2))/', include('api.v1.urls'))
 
 ]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -26,16 +26,16 @@ SECRET_KEY = 'v+^^o6fg^64+mbr%_@6b66^tm)x&t(n%%+2zs8c@6j&*fq)&ta'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if DJANGO_MODE == 'local':
-	DEBUG = True
+    DEBUG = True
 else:
-	DEBUG = False
+    DEBUG = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 if DJANGO_MODE == 'local':
-	ALLOWED_HOSTS = ['127.0.0.1',]
+    ALLOWED_HOSTS = ['127.0.0.1', ]
 else:
-	ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -47,10 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'django_cron',
-	'bootstrap3',
-	'sudoku_app',
-    'api_v1',
+    'django_cron',
+    'bootstrap3',
+    'sudoku_app',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'sudoku.urls'
