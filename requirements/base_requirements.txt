@@ -9,3 +9,4 @@ django-cron
 psycopg2
 uWSGI
 whitenoise
+djangorestframework
