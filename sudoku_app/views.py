@@ -25,7 +25,7 @@ class IndexView(TemplateView):
     """Index view."""
 
     template_name = 'index.html'
-    page_title = "Free sudoku generator."
+    page_title = "Generate Sudoku"
 
     def get(self, request, *args, **kwargs):
         """Get method."""

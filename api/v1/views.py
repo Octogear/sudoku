@@ -1,17 +1,18 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-
-from django.urls import reverse_lazy
-from django.views.generic import View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-
-from django.contrib.auth.decorators import login_required
-
+"""Api endpoints."""
 from django.contrib import messages
+from django.views.generic import View
 from django.http import JsonResponse
 
+from rest_framework import generics
 import sudoku_app.models as sudoku_models
+from .serializers import SudokuModelSerializer
 
-# Create your views here.
+
+class ListSudokuView(generics.ListAPIView):
+    """Displays 25 last sudoku."""
+
+    queryset = sudoku_models.SudokuModel.objects.all().order_by('-id')[:25]
+    serializer_class = SudokuModelSerializer
 
 
 class HealthView(View):
