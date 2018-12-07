@@ -41,41 +41,18 @@
     <div class="row">
         <h3>Latest generated sudoku</h3>
         <!-- last 3 or 4 generated tables -->
-        <div class="col-sm-3">
-            <div class="temp_square"></div>
-            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
+        {% for board in last_boards %}
+            <div class="col-sm-3">
+            <div class="temp_square">
+                {{ board.board_data }}
+            </div>
+            <p><a href="#" title="Click to solve it online">Sudoku {{board.id}}</a></p>
             <p>
-                <a class="btn btn-default" href="#">Download</a>
-                <a class="btn btn-default" href="#">Print</a>
-                <a class="btn btn-default" href="#">Solve online</a>
+                <a class="btn btn-default" href="#download/{{board.id}}">Download</a>
+                <a class="btn btn-default" href="#print/{{board.id}}">Print</a>
+                <a class="btn btn-default" href="#solve/{{board.id}}">Solve online</a>
             </p>
         </div>
-        <div class="col-sm-3">
-            <div class="temp_square"></div>
-            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
-            <p>
-                <a class="btn btn-default" href="#">Download</a>
-                <a class="btn btn-default" href="#">Print</a>
-                <a class="btn btn-default" href="#">Solve online</a>
-            </p>
-        </div>
-        <div class="col-sm-3">
-            <div class="temp_square"></div>
-            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
-            <p>
-                <a class="btn btn-default" href="#">Download</a>
-                <a class="btn btn-default" href="#">Print</a>
-                <a class="btn btn-default" href="#">Solve online</a>
-            </p>
-        </div>
-        <div class="col-sm-3">
-            <div class="temp_square"></div>
-            <p><a href="#" title="Click to solve it online">Sudoku #1234</a></p>
-            <p>
-                <a class="btn btn-default" href="#">Download</a>
-                <a class="btn btn-default" href="#">Print</a>
-                <a class="btn btn-default" href="#">Solve online</a>
-            </p>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}

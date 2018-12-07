@@ -36,3 +36,13 @@ class SudokuModel(models.Model):
         null=False,
         blank=False
     )
+    board_data = models.CharField(
+        null=True,
+        blank=True,
+        max_length=261
+    )
+    board_solution = models.CharField(
+        null=True,
+        blank=True,
+        max_length=261
+    )
