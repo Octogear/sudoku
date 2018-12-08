@@ -29,9 +29,6 @@ class SudokuApiView(
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        print("\nHERE")
-        print(gen_field(request.data['board_diffic'][0]))
-        print("HERE\n")
         board, solution = gen_field(request.data['board_diffic'][0])
 
         mutable = request.POST._mutable
@@ -39,7 +36,7 @@ class SudokuApiView(
         request.POST['board_data'] = str(board)
         request.POST['board_solution'] = str(solution)
         request.POST._mutable = mutable
-
+        print(">>>> Created sudoku")
         return self.create(request, *args, **kwargs)
 
 
