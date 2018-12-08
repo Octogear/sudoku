@@ -4,11 +4,33 @@ from django.views.generic import View
 from django.http import JsonResponse
 
 from rest_framework import generics
+from rest_framework import mixins
+
 import sudoku_app.models as sudoku_models
 from .serializers import SudokuModelSerializer
 
 
-class ListSudokuView(generics.ListAPIView):
+class SudokuApiView(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    generics.GenericAPIView
+):
+    """
+    : get - Displays 25 last sudoku.
+    : post - Creates a board.
+    """
+
+    queryset = sudoku_models.SudokuModel.objects.all().order_by('-id')[:25]
+    serializer_class = SudokuModelSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+class SudokuCreateView(generics.ListAPIView):
     """Displays 25 last sudoku."""
 
     queryset = sudoku_models.SudokuModel.objects.all().order_by('-id')[:25]

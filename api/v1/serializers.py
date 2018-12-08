@@ -9,3 +9,8 @@ class SudokuModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = SudokuModel
         fields = ("id", "board_title", "board_data", "board_solution", "board_diffic")
+
+        def create(self, validated_data):
+            instance = SudokuModel.objects.create(**validated_data)
+
+            return instance
