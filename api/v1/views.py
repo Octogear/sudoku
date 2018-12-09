@@ -36,7 +36,6 @@ class SudokuApiView(
         request.POST['board_data'] = str(board)
         request.POST['board_solution'] = str(solution)
         request.POST._mutable = mutable
-        print(">>>> Created sudoku")
         return self.create(request, *args, **kwargs)
 
 

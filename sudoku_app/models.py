@@ -2,6 +2,9 @@
 from django.db import models
 from .utils.auxiliary import gen_unique
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 class SudokuModel(models.Model):
     """Sudoku board class."""
@@ -46,3 +49,27 @@ class SudokuModel(models.Model):
         blank=True,
         max_length=261
     )
+
+
+class CounterModel(models.Model):
+    """Counter."""
+
+    count = models.IntegerField(
+        default=0,
+    )
+
+    def __str__(self):
+        """String repr."""
+        return "Generated boards: {}".format(self.count)
+
+
+@receiver(post_save, sender=SudokuModel)
+def update_counter(sender, instance, **kwargs):
+    """Update counter every time a board is generated."""
+    q = CounterModel.objects.all()
+    if len(q) != 1:
+        obj = CounterModel.objects.create()
+    else:
+        obj = CounterModel.objects.all()[0]
+    obj.count += 1
+    obj.save()
