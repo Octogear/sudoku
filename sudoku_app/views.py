@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 
 from . import forms
-from .models import SudokuModel
+from .models import SudokuModel, CounterModel
 
 
 class SignUpView(CreateView):
@@ -30,11 +30,13 @@ class IndexView(TemplateView):
     def get(self, request, *args, **kwargs):
         """Get method."""
         q = SudokuModel.objects.all().order_by('-id')[:4]  # .filter()
+        count = CounterModel.objects.all()[0].count
         return render(
             request,
             self.template_name, {
                 'page_title': self.page_title,
                 'last_boards': q,
+                'count': count,
             }
         )
 
