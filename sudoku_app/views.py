@@ -43,7 +43,7 @@ class IndexView(TemplateView):
 
 
 class ApiView(TemplateView):
-    """Index view."""
+    """API doc view."""
 
     template_name = 'sudokuapi.html'
     page_title = "Sudoku Generator API v.1"
@@ -55,6 +55,22 @@ class ApiView(TemplateView):
                 'base_url': "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path),
             }
         )
+
+
+class LastBoardsView(TemplateView):
+    """Last Boards view."""
+
+    template_name = 'lastboards.html'
+    page_title = "Sudoku Generator API v.1"
+
+    def get(self, request, *args, **kwargs):
+        return render(
+            request,
+            self.template_name, {
+                'base_url': "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path),
+            }
+        )
+
 
 class sudoku_appIndexView(TemplateView):
     template_name = 'sudoku_app/base.html'
