@@ -10,8 +10,8 @@ class SudokuModel(models.Model):
     """Sudoku board class."""
 
     class Meta:
-        verbose_name = "SudokuModel"
-        verbose_name_plural = "SudokuModels"
+        verbose_name = "Sudoku Board"
+        verbose_name_plural = "Sudoku Boards"
 
     def __str__(self):
         """String repr."""
@@ -53,6 +53,10 @@ class SudokuModel(models.Model):
 
 class CounterModel(models.Model):
     """Counter."""
+
+    class Meta:
+        verbose_name = "Counter"
+        verbose_name_plural = "Counter"
 
     count = models.IntegerField(
         default=0,

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django_cron',
+    'django_cron',
     'bootstrap3',
     'sudoku_app',
     'api',
@@ -76,7 +76,7 @@ ROOT_URLCONF = 'sudoku.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,6 +90,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sudoku.wsgi.application'
+
+
+CRON_CLASSES = [
+    "sudoku_app.cronjob.ClearBoards",
+]
+DJANGO_CRON_DELETE_LOGS_OLDER_THAN = 2
 
 
 # Database
