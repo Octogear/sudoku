@@ -28,6 +28,7 @@ from sudoku_app import views as sudoku_app_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sudoku_app_views.IndexView.as_view(), name='home'),
+    path('sudokuapi/', sudoku_app_views.ApiView.as_view(), name='sudokuapi'),
     path('sudoku_app_template/', sudoku_app_views.sudoku_appIndexView.as_view(), name='sudoku_app_template'),
 
     # logging users in/out

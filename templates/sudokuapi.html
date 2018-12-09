@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="row">
+        <h1>Sudoku generator API v.1.</h1>
+        <p>Sudoku generator API will allow you to get your daily sudoku grid and even more.</p>
+        <p>See for yourself!</p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Sudoku generator API v.1 details</h3>
+            <ol class='api-list'>
+                <li>
+                    <p>
+                        POST <pre>{{base_url}}api/v1/gen/DIFFICULTY</pre>
+                        generates a brand new sudoku grid with selected <b>DIFFICULTY</b>.
+                    </p>
+                    <p>
+                        DIFFICULTY values:
+                        <ul>
+                            <li>0 - sudoku for kids</li>
+                            <li>1 - easy sudoku</li>
+                            <li>2 - medium sudoku</li>
+                            <li>3 - hard sudoku</li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        GET
+                        <pre>{{base_url}}api/v1/last/</pre>
+                        returns 25 last generated sudoku grids.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
