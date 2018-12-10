@@ -14,8 +14,10 @@
             <h3>Sudoku generator API v.1 details</h3>
             <ol class='api-list'>
                 <li>
+                    <h4>Generate new sudoku</h4>
                     <p>
-                        POST <pre>{{base_url}}api/v1/gen/DIFFICULTY</pre>
+                        request type: <b>POST</b>
+                        <pre>{{base_url}}api/gen/DIFFICULTY</pre>
                         generates a brand new sudoku grid with selected <b>DIFFICULTY</b>.
                     </p>
                     <p>
@@ -29,10 +31,19 @@
                     </p>
                 </li>
                 <li>
+                    <h4>Get last generated sudoku boards</h4>
                     <p>
-                        GET
-                        <pre>{{base_url}}api/v1/last/</pre>
+                        request type: <b>GET</b>
+                        <pre>{{base_url}}api/last/</pre>
                         returns 25 last generated sudoku grids.
+                    </p>
+                </li>
+                <li>
+                    <h4>Get sudoku board solution</h4>
+                    <p>
+                        request type: <b>GET</b>
+                        <pre>{{base_url}}api/check?pk=SUDOKUBOARD_ID</pre>
+                        takes sugoku board ID and returns sudoku board and the solution for it.
                     </p>
                 </li>
             </ol>

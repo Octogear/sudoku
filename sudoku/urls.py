@@ -41,6 +41,6 @@ urlpatterns = [
 
     # apps url
     path('sudoku_app/', include('sudoku_app.urls')),
-    re_path('api/(?P<version>(v1|v2))/', include('api.v1.urls'))
+    path('api/', include('api.v1.urls'))
 
 ]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

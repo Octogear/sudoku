@@ -12,5 +12,12 @@ class SudokuModelSerializer(serializers.ModelSerializer):
 
         def create(self, validated_data):
             instance = SudokuModel.objects.create(**validated_data)
-
             return instance
+
+
+class CheckSudokuSerializer(serializers.ModelSerializer):
+    """Sudoku board serializer."""
+
+    class Meta:
+        model = SudokuModel
+        fields = ("id", "board_data", "board_solution")

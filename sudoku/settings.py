@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cron',
     'bootstrap3',
+    'rest_framework',
     'sudoku_app',
     'api',
 ]
