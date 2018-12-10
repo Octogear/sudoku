@@ -4,39 +4,26 @@
     <div class="row">
         <div class="col-sm-12">
             <h1>Last 25 generated sudoku boards</h1>
-            <p>Here you'll find last generated sudoku boards by our application.</p>
+            <p>Here are 25 last generated sudoku boards at your disposal.</p>
             <p>Enjoy!</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-            <div style="width:140px; height:140px; background-color:#cecece; margin:0 20px 20px 0; float:left;"> </div>
-
+            {% for board in last_boards %}
+            <div class="col-sm-3">
+                <div class="temp_square">
+                    {{ board.board_data }}
+                </div>
+                <p><a href="#" title="Click to solve it online">Sudoku {{board.id}}, difficulty {{board.board_diffic}}</a></p>
+                <p>
+                    <a class="btn btn-default" href="#download/{{board.id}}">Download</a>
+                    <a class="btn btn-default" href="#print/{{board.id}}">Print</a>
+                    <a class="btn btn-default" href="#solve/{{board.id}}">Solve online</a>
+                </p>
+            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

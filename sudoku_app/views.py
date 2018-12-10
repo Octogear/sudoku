@@ -52,6 +52,7 @@ class ApiView(TemplateView):
         return render(
             request,
             self.template_name, {
+                'page_title': self.page_title,
                 'base_url': "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path),
             }
         )
@@ -61,12 +62,15 @@ class LastBoardsView(TemplateView):
     """Last Boards view."""
 
     template_name = 'lastboards.html'
-    page_title = "Sudoku Generator API v.1"
+    page_title = "Last generated sudoku boards."
 
     def get(self, request, *args, **kwargs):
+        q = SudokuModel.objects.all().order_by('-id')[:25]
         return render(
             request,
             self.template_name, {
+                'page_title': self.page_title,
+                'last_boards': q,
                 'base_url': "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path),
             }
         )
