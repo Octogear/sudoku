@@ -16,14 +16,22 @@
                 <li>
                     <h4>Generate new sudoku</h4>
                     <p>
-                        request type: <b>POST</b>
-                        <pre>{{base_url}}api/gen/DIFFICULTY</pre>
-                        generates a brand new sudoku grid with selected <b>DIFFICULTY</b>.
+                        <pre>{{base_url}}api/gen/</pre>
+                        Request type: <b>POST</b> with <i class="pre">board_diffic='DIFFICULTY'</i>.
+                    </p>
+                    <p class="api_description">Generates a brand new sudoku grid with selected <b>DIFFICULTY</b>.</p>
+                    <p>
+                        <form action="{{base_url}}api/gen/" method="POST">
+                            Try this example: <a href="#">{{base_url}}api/gen/ </a>
+                            {%csrf_token%}
+                            <input type="hidden" name="board_diffic" value="0">
+                            <input type="submit" value="Generate easy board">
+                        </form>
                     </p>
                     <p>
-                        DIFFICULTY values:
+                        <b>DIFFICULTY</b> values:
                         <ul>
-                            <li>0 - sudoku for kids</li>
+                            <li>0 - uber easy sudoku (baby)</li>
                             <li>1 - easy sudoku</li>
                             <li>2 - medium sudoku</li>
                             <li>3 - hard sudoku</li>
@@ -33,18 +41,20 @@
                 <li>
                     <h4>Get last generated sudoku boards</h4>
                     <p>
-                        request type: <b>GET</b>
                         <pre>{{base_url}}api/last/</pre>
-                        returns 25 last generated sudoku grids.
+                        Request type: <b>GET</b>
                     </p>
+                    <p class="api_description">Returns 25 last generated sudoku grids.</p>
+                    <p>Try this example: <a href="{{base_url}}api/last">{{base_url}}api/last</a></p>
                 </li>
                 <li>
                     <h4>Get sudoku board solution</h4>
                     <p>
-                        request type: <b>GET</b>
                         <pre>{{base_url}}api/check?pk=SUDOKUBOARD_ID</pre>
-                        takes sugoku board ID and returns sudoku board and the solution for it.
+                        Request type: <b>GET</b>
                     </p>
+                    <p class="api_description">Takes sugoku board ID and returns sudoku board and the solution for it.</p>
+                    <p>Try this example: <a href="{{base_url}}api/check?id=11">{{base_url}}api/check?id=BOARD_ID</a> (you'll need to replace BOARD_ID with existing one)</p>
                 </li>
             </ol>
         </div>
