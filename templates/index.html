@@ -2,13 +2,17 @@
 
 {% block body_block %}
     <div class="row">
-        <h3>Welcome to Sudoku generator web app!</h3>
-        <p>This application generates unique sudoku of required complexity.</p>
-        <p>It also have <a href="#">API</a> that you can use to generate even more sudoku.</p>
+        <div class="col-sm-12">
+            <h3>Welcome to Sudoku generator web app!</h3>
+            <p>This application generates unique sudoku of required complexity.</p>
+            <p>It also have <a href="#">API</a> that you can use to generate even more sudoku.</p>
+        </div>
     </div>
 
     <div class="row">
-        <h1>Sudoku generator</h1>
+        <div class="col-sm-12">
+            <h1>Sudoku generator</h1>
+        </div>
         <!-- generator will be here -->
         <div class="generator">
             <div class="col-sm-6">
@@ -151,8 +155,9 @@
     </div>
 
     <div class="row">
-        <h3>Latest generated sudoku</h3>
-        <!-- last 3 or 4 generated tables -->
+        <div class="col-sm-12">
+            <h3>Last generated sudoku (4 out of {{count}})</h3>
+        </div>
         {% for board in last_boards %}
             <div class="col-sm-3">
             <div class="temp_square">
@@ -165,12 +170,7 @@
                     }
                 </script>
             </div>
-            <p><a href="#" title="Click to solve it online">Sudoku {{board.id}}</a></p>
-            <p>
-                <a class="btn btn-default" href="#download/{{board.id}}">Download</a>
-                <a class="btn btn-default" href="#print/{{board.id}}">Print</a>
-                <a class="btn btn-default" href="#solve/{{board.id}}">Solve online</a>
-            </p>
+            {% include "sudoku_preview.html" %}
         </div>
         {% endfor %}
     </div>

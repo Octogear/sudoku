@@ -28,7 +28,9 @@ from sudoku_app import views as sudoku_app_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sudoku_app_views.IndexView.as_view(), name='home'),
-    path('sudoku_app_template/', sudoku_app_views.sudoku_appIndexView.as_view(), name='sudoku_app_template'),
+    path('sudokuapi/', sudoku_app_views.ApiView.as_view(), name='sudokuapi'),
+    path('lastboards/', sudoku_app_views.LastBoardsView.as_view(), name='lastboards'),
+    path('sudoku_app_template/', sudoku_app_views.IndexView.as_view(), name='sudoku_app_template'),
 
     # logging users in/out
     path('accounts/login', include('django.contrib.auth.urls'), name='login'),
@@ -39,6 +41,6 @@ urlpatterns = [
 
     # apps url
     path('sudoku_app/', include('sudoku_app.urls')),
-    re_path('api/(?P<version>(v1|v2))/', include('api.v1.urls'))
+    path('api/', include('api.v1.urls'))
 
 ]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Last 25 generated sudoku boards</h1>
+            <p>Here are 25 last generated sudoku boards at your disposal.</p>
+            <p>Enjoy!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% for board in last_boards %}
+            <div class="col-sm-3">
+                <div class="temp_square">
+                    {{ board.board_data }}
+                </div>
+                {% include "sudoku_preview.html" %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

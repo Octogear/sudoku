@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cron',
     'bootstrap3',
+    'rest_framework',
     'sudoku_app',
     'api',
 ]
@@ -64,12 +65,19 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
+    )
+}
+
 ROOT_URLCONF = 'sudoku.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,6 +91,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sudoku.wsgi.application'
+
+
+CRON_CLASSES = [
+    "sudoku_app.cronjob.ClearBoards",
+]
+DJANGO_CRON_DELETE_LOGS_OLDER_THAN = 2
 
 
 # Database

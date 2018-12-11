@@ -6,19 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Free Sudoku Generator</title>
+    <title>Free Sudoku Generator / {{ page_title }}</title>
     <meta name="description" content="This is a free sudoku generator. Use it to generate your daily sudoku of different difficulty. Play sudoku online or print it.">
     <meta name="keywords" content="sudoku, sudoku generator, free sudoku generator, sudoku board, sudoku grid, play sudoku online, solve sudoku, daily sudoku, print sudoku">
-
     <meta property="og:title" content="Free Sudoku Generator" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{base_url}}" />
-
-        {% load bootstrap3 %}
-        {% bootstrap_css %}
-        <script src="https:{% bootstrap_jquery_url %}"></script>
-        {% bootstrap_javascript %}
-        <script src="{% static "js/main.js" %}"></script>
+    <meta property="og:image" content="{% static "images/og_img.jpeg" %}" />
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    <script src="https:{% bootstrap_jquery_url %}"></script>
+    {% bootstrap_javascript %}
+    <script src="{% static "js/main.js" %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/sticky-footer.css" %}">
 </head>
