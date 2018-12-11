@@ -157,6 +157,13 @@
             <div class="col-sm-3">
             <div class="temp_square">
                 {{ board.board_data }}
+                <script>
+                    function decodeHtml(html) {
+                         var txt = {{ board.board_data }};
+                         txt.innerHTML = html;
+                        return txt.value;
+                    }
+                </script>
             </div>
             <p><a href="#" title="Click to solve it online">Sudoku {{board.id}}</a></p>
             <p>
