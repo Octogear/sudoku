@@ -53,7 +53,7 @@ class ApiView(TemplateView):
             request,
             self.template_name, {
                 'page_title': self.page_title,
-                'base_url': "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path),
+                'base_url': "{0}://{1}/".format(request.scheme, request.get_host(), request.path),
             }
         )
 
@@ -71,7 +71,7 @@ class LastBoardsView(TemplateView):
             self.template_name, {
                 'page_title': self.page_title,
                 'last_boards': q,
-                'base_url': "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path),
+                'base_url': "{0}://{1}/".format(request.scheme, request.get_host(), request.path),
             }
         )
 

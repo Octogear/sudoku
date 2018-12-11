@@ -30,8 +30,8 @@ def _remove_numbers(field_l, n):
             break
         line_n = random.randint(0, 8)
         position_n = random.randint(0, 8)
-        if field_l[line_n][position_n] != ' ':
-            field_l[line_n][position_n] = ' '
+        if field_l[line_n][position_n] != 0:
+            field_l[line_n][position_n] = 0
             n -= 1
 
 
