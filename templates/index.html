@@ -26,9 +26,10 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <form action="">
+                <form action="{{base_url}}api/gen/" method="POST">
+                    {%csrf_token%}
                     <label for="difficulty">Select difficulty:</label>
-                    <select name="difficulty" id="difficulty">
+                    <select name="board_diffic" id="difficulty">
                         <option value="0">Baby</option>
                         <option value="1">Easy</option>
                         <option value="2">Medium</option>
