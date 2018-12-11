@@ -16,12 +16,7 @@
                 <div class="temp_square">
                     {{ board.board_data }}
                 </div>
-                <p><a href="#" title="Click to solve it online">Sudoku {{board.id}}, difficulty {{board.board_diffic}}</a></p>
-                <p>
-                    <a class="btn btn-default" href="#download/{{board.id}}">Download</a>
-                    <a class="btn btn-default" href="#print/{{board.id}}">Print</a>
-                    <a class="btn btn-default" href="#solve/{{board.id}}">Solve online</a>
-                </p>
+                {% include "sudoku_preview.html" %}
             </div>
             {% endfor %}
         </div>
