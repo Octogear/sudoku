@@ -30,7 +30,13 @@ class IndexView(TemplateView):
     def get(self, request, *args, **kwargs):
         """Get method."""
         q = SudokuModel.objects.all().order_by('-id')[:4]  # .filter()
+
+        counter_obj = len(CounterModel.objects.all())
+        if counter_obj == 0:
+            CounterModel.objects.create()
+
         count = CounterModel.objects.all()[0].count
+
         return render(
             request,
             self.template_name, {
