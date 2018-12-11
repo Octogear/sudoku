@@ -86,6 +86,12 @@ body{
 	margin-right: 0;
 }
 
+.temp_square button {
+	width: calc(200px / 9);
+	height: calc(200px / 9);
+	border: 1px solid #fff;
+}
+
 /* Footer */
 .photo-creds {
     font-size: 11px;

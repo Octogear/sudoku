@@ -160,20 +160,28 @@
         </div>
         {% for board in last_boards %}
             <div class="col-sm-3">
-            <div class="temp_square">
-                {{ board.board_data }}
-            </div>
+            <div class="temp_square" id="{{board.id}}"></div>
+            
             <script>
-                 var str_esc=escape({{ board.board_data }});
-                 console.log(unescape(str_esc));
+                var arrayVariable = {{ board.board_data }}
 
-                 txt.map((group) => {
+                arrayVariable.map((group) => {
                     group.map((subgroup) => {
-                        var bbb = subgroup * 2;
-                        console.log(bbb);
+                        $('<button></button>').text(subgroup).appendTo('.temp_square');
                     });
-                 })
+                });
+
+                var ifNul = $('.temp_square button').text();
+
+                $('.temp_square button').each(function() {
+                    var ifNul = $(this).text();
+                    
+                    if(ifNul === '0') {
+                        $(this).text('');
+                    }
+                });
             </script>
+
             {% include "sudoku_preview.html" %}
         </div>
         {% endfor %}
