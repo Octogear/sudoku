@@ -162,16 +162,22 @@
             <div class="col-sm-3">
             <div class="temp_square">
                 {{ board.board_data }}
-                <script>
-                    function decodeHtml(html) {
-                         var txt = {{ board.board_data }};
-                         txt.innerHTML = html;
-                        return txt.value;
-                    }
-                </script>
             </div>
+            <script>
+                 var str_esc=escape({{ board.board_data }});
+                 console.log(unescape(str_esc));
+
+                 txt.map((group) => {
+                    group.map((subgroup) => {
+                        var bbb = subgroup * 2;
+                        console.log(bbb);
+                    });
+                 })
+            </script>
             {% include "sudoku_preview.html" %}
         </div>
         {% endfor %}
     </div>
 {% endblock %}
+
+
